@@ -1,17 +1,18 @@
 /**
  * removeAllSpans -  функция, которая удаляет все элементы span со страницы
  */
-function removeAllSpans () {
+function removeAllSpans() {
     var elem = document.getElementsByTagName('span');
+    var i;
 
     do {
-        for (var i = 0; i < elem.length; i++) {
+        for (i = 0; i < elem.length; i++) {
             elem[i].parentNode.removeChild(elem[i]);
         }
     } while (elem.length > 0);
 
 };
-removeAllSpans();
+
 
 /**
  * firstChild -  функция, которая будет кроссбразурено возвращать firstChild (не текстовую ноду).
@@ -20,11 +21,18 @@ removeAllSpans();
  * @return {Node}
  */
 
-function firstChild (parent) {
+function firstChild(parent) {
     var node = parent.firstElementChild;
 
-    return node;
-}
+    if (node >= 0) {
+        console.log('it is text-node');
+    } else if (node === undefined) {
+        console.log('node is undefined');
+    } else {
+        return node;
+    }
+
+};
 
 /**
  * lastChild -  функция, будет кроссбраузерно возвращать lastChild (не текстовую ноду).
@@ -33,11 +41,18 @@ function firstChild (parent) {
  * @return {Node}
  */
 
-function lastChild (parent) {
+function lastChild(parent) {
     var node = parent.lastElementChild;
 
-    return node;
-}
+    if (node >= 0) {
+        console.log('it is text-node');
+    } else if (node === undefined) {
+        console.log('node is undefined');
+    } else {
+        return node;
+    }
+
+};
 
 /**
  * next -  функция, которая будет кроссбраузерно возвращать следующий элемент
@@ -47,11 +62,18 @@ function lastChild (parent) {
  * @return {Node}
  */
 
-function next (node) {
+function next(node) {
     var node = node.nextElementSibling;
 
-    return node;
-}
+    if (node >= 0) {
+        console.log('it is text-node');
+    } else if (node === undefined) {
+        console.log('node is undefined');
+    } else {
+        return node;
+    }
+
+};
 
 /**
  * prev -  функция, которая будет кроссбраузерно возвращать предыдущий элемент
@@ -61,11 +83,18 @@ function next (node) {
  * @return {Node}
  */
 
-function prev (node) {
+function prev(node) {
     var node = node.previousElementSibling;
 
-    return node;
-}
+    if (node >= 0) {
+        console.log('it is text-node');
+    } else if (node === undefined) {
+        console.log('node is undefined');
+    } else {
+        return node;
+    }
+
+};
 
 /**
  * OPTIONAL
@@ -81,9 +110,9 @@ function prev (node) {
  * @return {Node}
  */
 
-function closest (node, selector) {
+function closest(node, selector) {
     var node = document.querySelector(node);
     var selector = node.closest(selector);
 
     return selector;
-}
+};
